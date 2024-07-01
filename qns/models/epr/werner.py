@@ -130,7 +130,6 @@ class WernerStateEntanglement(BaseEntanglement, QuantumModel):
 
         phi_p = 1/np.sqrt(2) * np.array([[1], [0], [0], [1]])
         rho = self.w * np.dot(phi_p, phi_p.T.conjugate()) + (1-self.w)/4 * np.identity(4)
-        print(rho)
         qs = QState([q0, q1], rho=rho)
         q0.state = qs
         q1.state = qs

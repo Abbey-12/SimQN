@@ -1,0 +1,24 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import math
+
+def P(n, mu, eta):
+    return (math.exp(-mu * eta) * (mu * eta)**n) / math.factorial(n)
+
+# Parameters
+mu = 1
+eta = 1
+n_values = np.arange(20,100)
+
+# Compute P(n) for each n
+P_values = [P(n, mu, eta) for n in n_values]
+
+# Plot the graph
+plt.figure(figsize=(10, 6))
+plt.plot(n_values, P_values, 'bo-', label=r'$P(n) = \frac{e^{-\mu \eta} (\mu \eta)^n}{n!}$')
+plt.title('Plot of P(n)')
+plt.xlabel('n')
+plt.ylabel('P(n)')
+plt.legend()
+plt.grid(True)
+plt.show()
